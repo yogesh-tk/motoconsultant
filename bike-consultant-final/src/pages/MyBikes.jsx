@@ -1,0 +1,3 @@
+import BikeCard from "../components/BikeCard";
+function MyBikes({ bikes, user, favourites, onFavourite, onEdit, onDelete, onAdd }) { const list = bikes.filter(b => b.ownerId === user.id); return <main className="container section"><div className="page-head"><div><span className="eyebrow">YOUR LISTINGS</span><h1>My Upload Bikes</h1></div><button className="primary-btn" onClick={onAdd}>＋ Upload bike</button></div><div className="bike-grid">{list.map(b => <BikeCard key={b.id} bike={b} user={user} favourite={favourites.includes(b.id)} onFavourite={onFavourite} onEdit={onEdit} onDelete={onDelete}/>)}</div>{!list.length && <div className="empty">You have not uploaded any bikes yet.</div>}</main> }
+export default MyBikes;
